@@ -61,8 +61,9 @@ public class BankAccount {
         }
     }
 
-    public void showAccountDetails(int id, String name, double balance) {
-        System.out.println("CuentaBancaria[id=" + id + ", nombre=" + name + ", saldo=" + balance + "]");
+    @Override
+    public String toString() {
+        return"CuentaBancaria[id=" + id + ", nombre=" + name + ", saldo=" + balance + "]";
     }
 
 }

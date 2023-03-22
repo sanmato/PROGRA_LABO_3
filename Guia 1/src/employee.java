@@ -59,7 +59,8 @@ public class employee {
         return newSalary;
     }
 
-    public void showEmployeeData(long dni, String name, String last_name, double salary) {
-        System.out.println("Empleado[dni= " + dni + ", nombre=" + name + ", apellido=" + last_name + ", sueldo=" + salary + "]");
+    @Override
+    public String toString() {
+        return "Empleado[dni= " + dni + ", nombre=" + name + ", apellido=" + last_name + ", sueldo=" + salary + "]";
     }   
 }

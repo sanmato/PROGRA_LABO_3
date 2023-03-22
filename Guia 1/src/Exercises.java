@@ -1,3 +1,4 @@
+import java.nio.file.AtomicMoveNotSupportedException;
 
 public class Exercises {
 
@@ -36,8 +37,8 @@ public class Exercises {
         employee anotherEmployee = new employee(34234123, "Ana", "Sanchez", 27500);
 
         //Ejercicio 2.c
-        employee.showEmployeeData(employee.getDni(), employee.getName(), employee.getLast_name(), employee.getSalary());
-        anotherEmployee.showEmployeeData(anotherEmployee.getDni(), anotherEmployee.getName(), anotherEmployee.getLast_name(), anotherEmployee.getSalary());
+        System.out.println(employee.toString());
+        System.out.println(anotherEmployee.toString());
         
         //Ejercicio 2.d
         employee.increaseSalary(15);
@@ -51,7 +52,7 @@ public class Exercises {
         SaleItem shovel = new SaleItem(1, "Pala", 2, 12.75);
 
         //Ejercicio 3.b
-        shovel.showItemData(shovel.getId(), shovel.getDescription(), shovel.getQuantity(), shovel.getPrice(), shovel.calculateTotalPrice());
+        System.out.println(shovel.toString());
     }
 
     public void exerciseFour() {
@@ -67,7 +68,7 @@ public class Exercises {
         //Ejercicio 4.d
         anAccount.extractTransaction(30000);
 
-        anAccount.showAccountDetails(anAccount.getId(), anAccount.getName(), anAccount.getBalance());
+        System.out.println(anAccount.toString());
 
     }
 }

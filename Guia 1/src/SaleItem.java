@@ -48,8 +48,9 @@ public class SaleItem {
         return price*quantity;
     }
 
-    public void showItemData(int id, String description, int quantity, double price, double total_price) {
-        System.out.println("ItemVenta[id=" + id + ", descripcion=" + description + ", cantidad=" + quantity + ", pUnitario=" + price + ", pTotal="+ total_price +"]");
+    @Override
+    public String toString() {
+        return "ItemVenta[id=" + id + ", descripcion=" + description + ", cantidad=" + quantity + ", pUnitario=" + price + ", pTotal="+ calculateTotalPrice() +"]";
     }   
 
     
