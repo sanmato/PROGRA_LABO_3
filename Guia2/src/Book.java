@@ -13,7 +13,7 @@ public class Book {
         this.title = title;
         this.price = price;
         this.stock = stock;
-        this.author = new Author[5];
+        this.author = author;
     }
 
     public String getTitle() {
@@ -40,8 +40,8 @@ public class Book {
         this.stock = stock;
     }
 
-    public Author[] getAuthor() {
-        return author;
+    public Author getAuthor(int index) {
+        return author[index];
     }
 
     public void setAuthor(Author[] author) {
@@ -58,12 +58,21 @@ public class Book {
                 '}';
     }
 
-    public void printBookInfo(Author[] authors) {
+    public String getAuthorsName() {
+        String authorsName = "";
 
-        for (int i=0; i<authors.length; i++) {
-            authors[i].getName();
+        for(Author authorFullName : author) {
+            authorsName += authorFullName.getName() + " ";
+            authorsName += authorFullName.getLast_name() + ", ";
         }
-        System.out.printf("El libro "+title+ " del autor " +authors.toString()+ " se vende a $"+price);
+
+        authorsName = authorsName.substring(0, authorsName.length() - 2);
+
+        return authorsName;
+    }
+
+    public void printBookInfo() {
+        System.out.println("El libro "+title+ " de los autores " +getAuthorsName()+ " se vende a $"+price);
     }
 
 
