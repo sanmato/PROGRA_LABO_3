@@ -1,21 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        Author joshua = new Author("Joshua", "Bloch", "joshua@email.com", 'M');
-        Author santi = new Author("Santi", "Manuel", "santi@email.com", 'M');
+        //Ejercicio 1
+        System.out.println("*****************Ejercicio 1*****************");
+        Exercise exerciseOne = new Exercise();
+        exerciseOne.exerciseOne();
 
-        Author[] authors = {joshua, santi};
+        //Ejercicio 2
+        System.out.println("*****************Ejercicio 2*****************");
+        Exercise exerciseTwo = new Exercise();
+        exerciseTwo.exerciseTwo();
 
-        System.out.println(joshua.toString());
 
-        Book java = new Book("Effective Java", 450, 150, authors);
-        System.out.println(java.toString());
-        java.setPrice(500);
-        java.setStock(java.getStock()+50);
+        //Ejercicio 3
+        System.out.println("*****************Ejercicio 3*****************");
+        Exercise exerciseThree = new Exercise();
+        exerciseThree.exerciseThree();
 
-        for(int i = 0; i<authors.length; i++) {
-            System.out.println(java.getAuthor(i));
-        }
-
-        java.printBookInfo();
     }
 }
