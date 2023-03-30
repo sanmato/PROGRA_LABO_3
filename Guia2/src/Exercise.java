@@ -68,7 +68,6 @@ public class Exercise {
 
             myAccount.extractTransaction();
             System.out.println(myAccount.toString());
-            System.out.println("Operation number "+i);
             i++;
         }
 

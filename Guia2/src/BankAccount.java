@@ -60,13 +60,13 @@ public class BankAccount {
         scanner.nextLine();
         double newBalance;
 
-        if(negativeBalance != 2000 && amountToDeposit != 0) {
-            newBalance = balance+amountToDeposit - (2000-negativeBalance);
+        if(negativeBalance != 2000 && amountToDeposit > 0) {
+            newBalance = balance+amountToDeposit - (2000-negativeBalance); //SI TIENE SALDO DEUDOR
             setNegativeBalance(2000);
             setBalance(newBalance);
             return newBalance;
         } else {
-            newBalance = balance+amountToDeposit;
+            newBalance = balance+amountToDeposit; //CASO NORMAL, NO DEBE SALDO
             setBalance(newBalance);
             return newBalance;
         }
