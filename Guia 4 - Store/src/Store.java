@@ -68,24 +68,65 @@ public class Store {
         }
         return null;
     }
-    
-    public void rentMovie(Movie movie, Customer customer, Date acquireDate, LocalDate returnDate) {
-        Rent rent = new Rent(movie, customer, acquireDate);
-        if(movie.getStock() == 0) {
-            System.out.println("Can't complete action");
-        } else {
-            movie.setStock(movie.getStock() -1 );
-            rents.add(rent);
-        }
-    }
 
-    public void returnMovie(Movie movie, Customer customer, Date returnDate) {
-        for(Rent rent : rents) {
-            if(rent.getCustomer().equals(customer) && rent.getMovie().equals(movie)) {
-                movie.setStock(movie.getStock() +1);
-                rent.setReturnDate(LocalDate.now());
+    public void rentMovie(Movie movie, Customer customer, LocalDate acquireDate, LocalDate returnDate) {
+        Movie existingMovie = findMovie(movie.getName());
+        if(existingMovie == null) {
+            System.out.println("Movie not found.");
+        } else {
+            if(existingMovie.getStock() == 0) {
+                System.out.println("The movie is not available at the moment.");
+            } else {
+                Rent rent = new Rent(existingMovie, customer, acquireDate, returnDate);
+                existingMovie.setStock(existingMovie.getStock() - 1);
+                existingMovie.setPopularity(existingMovie.getPopularity() +1);
+                rents.add(rent);
+                System.out.println("Movie rented successfully.");
             }
         }
     }
+
+    public void returnMovie(Movie movie, Customer customer, LocalDate returnDate) {
+        for(Rent rent : rents) {
+            if(rent.getCustomer().equals(customer) && rent.getMovie().equals(movie)) {
+                movie.setStock(movie.getStock() +1);
+                rent.setRentReturned(true);
+            }
+        }
+    }
+
+    public void printRentals() {
+        rents.forEach(rental -> {
+            if(rental.getRentReturned() == false) {
+                System.out.println(rental.toString());
+            }
+        });
+    }
+
+    public void getRentsToBeBackedToday() {
+        rents.forEach(rental -> {
+            if(rental.getReturnDate().equals(LocalDate.now())) {
+                System.out.println(rental.toString());
+            }
+        });
+    }
+
+    public String getLastRentsByCustomer(String customerName) {
+        String list = "";
+        int j = 0, i=rents.size()-1;
+        while(i>=0 && j<10) {
+            if(this.rents.get(i).getCustomer().getName().equals(customerName)) {
+                list += this.rents.get(i).toString();
+                j++;
+            }
+            i--;
+        }
+        return list;
+    }
+
+    public void getMostRentedMovies() {
+        
+    }
     
 }
+

@@ -4,14 +4,17 @@ import java.util.Date;
 public class Rent {
     private Movie movie;
     private Customer customer;
-    private Date acquireDate;
-    private LocalDate returnDate = null;
+    private LocalDate acquireDate;
+    private LocalDate returnDate;
+
+    private Boolean isRentReturned = false;
 
 
-    public Rent(Movie movie, Customer customer, Date acquireDate) {
+    public Rent(Movie movie, Customer customer, LocalDate acquireDate, LocalDate returnDate) {
         this.movie = movie;
         this.customer = customer;
         this.acquireDate = acquireDate;
+        this.returnDate = returnDate;
     }
 
     public Rent(){}
@@ -32,11 +35,11 @@ public class Rent {
         this.customer = customer;
     }
 
-    public Date getAcquireDate() {
+    public LocalDate getAcquireDate() {
         return acquireDate;
     }
 
-    public void setAcquireDate(Date acquireDate) {
+    public void setAcquireDate(LocalDate acquireDate) {
         this.acquireDate = acquireDate;
     }
 
@@ -44,17 +47,26 @@ public class Rent {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate localDate) {
-        this.returnDate = localDate;
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public Boolean getRentReturned() {
+        return isRentReturned;
+    }
+
+    public void setRentReturned(Boolean rentReturned) {
+        isRentReturned = rentReturned;
     }
 
     @Override
     public String toString() {
-        return "Rent [movie=" + movie + ", customer=" + customer + ", acquireDate=" + acquireDate + ", returnDate="
-                + returnDate + "]";
+        return "Rent{" +
+                "movie=" + movie +
+                ", customer=" + customer +
+                ", acquireDate=" + acquireDate +
+                ", returnDate=" + returnDate +
+                ", isRentReturned=" + isRentReturned +
+                '}';
     }
-
-    
-
-    
 }

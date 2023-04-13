@@ -10,6 +10,8 @@ public class Movie {
     private Integer stock;
     private MovieGender gender;
 
+    private Integer popularity = 0;
+
 
     public Movie(String name, Date releaseDate, Integer durationInMinutes, String audienceClasification, String country,
             String description, Integer stock, MovieGender gender) {
@@ -89,14 +91,26 @@ public class Movie {
         this.gender = gender;
     }
 
-    @Override
-    public String toString() {
-        return "Movie [name=" + name + ", releaseDate=" + releaseDate + ", durationInMinutes=" + durationInMinutes
-                + ", audienceClasification=" + audienceClasification + ", country=" + country + ", description="
-                + description + ", stock=" + stock + ", gender=" + gender + "]";
+    public Integer getPopularity() {
+        return popularity;
     }
 
-    
+    public void setPopularity(Integer popularity) {
+        this.popularity = popularity;
+    }
 
-    
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", durationInMinutes=" + durationInMinutes +
+                ", audienceClasification='" + audienceClasification + '\'' +
+                ", country='" + country + '\'' +
+                ", description='" + description + '\'' +
+                ", stock=" + stock +
+                ", gender=" + gender +
+                ", popularity=" + popularity +
+                '}';
+    }
 }
