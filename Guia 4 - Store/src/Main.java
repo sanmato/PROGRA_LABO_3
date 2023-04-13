@@ -23,5 +23,7 @@ public class Main {
 
         store.getRentsToBeBackedToday();
 
+        store.getMostRentedMovies();
+
     }
 }

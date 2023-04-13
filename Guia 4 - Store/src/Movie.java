@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Movie {
+public class Movie implements Comparable<Movie> {
     private String name;
     private Date releaseDate;
     private Integer durationInMinutes;
@@ -112,5 +112,16 @@ public class Movie {
                 ", gender=" + gender +
                 ", popularity=" + popularity +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Movie other) {
+        if (this.popularity > other.popularity) {
+            return -1; // esta película es más popular
+        } else if (this.popularity < other.popularity) {
+            return 1; // esta película es menos popular
+        } else {
+            return 0; // las dos películas tienen la misma popularidad
+        }
     }
 }

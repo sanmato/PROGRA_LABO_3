@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b7a2ea76-881b-4034-8fa4-67fd203b999d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Guia 4 - Store/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Guia 4 - Store/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Guia 4 - Store/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Guia 4 - Store/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Guia 4 - Store/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Guia 4 - Store/Store.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

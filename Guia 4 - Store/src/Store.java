@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class Store {
@@ -125,7 +126,11 @@ public class Store {
     }
 
     public void getMostRentedMovies() {
-        
+        Collections.sort(movies);
+        for (Movie movie : movies) {
+            System.out.println(movie.getName() + " - Popularity: " + movie.getPopularity());
+        }
+
     }
     
 }
