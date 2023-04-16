@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Store {
     private ArrayList<Movie> movies;
@@ -131,6 +133,25 @@ public class Store {
             System.out.println(movie.getName() + " - Popularity: " + movie.getPopularity());
         }
 
+    }
+
+    public void getMostRentedMoviesByGender(MovieGender gender) {
+        List<Movie> genderMovies = movies.stream()
+            .filter(movie -> movie.getGender().equals(gender))
+            .sorted()
+            .collect(Collectors.toList());
+
+        for(Movie movie : genderMovies) {
+            System.out.println(movie.getName() + " - Popularity: " + movie.getPopularity());
+        }
+    }
+
+    public void printInfo(String movieTitle) {
+        movies.forEach(movie -> {
+            if(movie.getName().equals(movieTitle)) {
+                System.out.println(movie.toString());
+            }
+        });
     }
     
 }
