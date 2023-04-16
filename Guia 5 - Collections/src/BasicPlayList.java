@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class BasicPlayList implements IPlayList{
     private String name;
-    private Stack myList;
+    private Stack<Song> myList;
 
     public BasicPlayList() {
     }
@@ -37,11 +37,11 @@ public class BasicPlayList implements IPlayList{
 
     @Override
     public void addSong(Song song) {
-        System.out.println("PAGA RATA");
+        myList.add(song);
     }
 
     @Override
-    public void removeSong(Song song) {
+    public void removeSong() {
         System.out.println("PAGA RATA");
     }
 
