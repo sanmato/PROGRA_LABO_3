@@ -1,5 +1,3 @@
-import java.io.NotActiveException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
@@ -42,60 +40,62 @@ public class Main {
         premium.addSong(cruaChan);
         premium.addSong(noTanDistintos);
 
-        Scanner scanner = new Scanner(System.in);
-        
-        boolean exit = false;
+        try (Scanner scanner = new Scanner(System.in)) {
+            boolean exit = false;
 
-        while(!exit) {
+            while(!exit) {
 
-            System.out.println("\n------ MAIN MENU ------");
-            System.out.println("1. PLAY SONG");
-            System.out.println("2. ADD A SONG TO THE PLAYLIST");
-            System.out.println("3. DELETE A SONG OF THE PLAYLIST");
-            System.out.println("4. DISPLAY PLAYLIST");
-            System.out.println("5. EXIT");
-            System.out.println("----------------------------");
+                System.out.println("\n------ MAIN MENU ------");
+                System.out.println("1. PLAY SONG");
+                System.out.println("2. ADD A SONG TO THE PLAYLIST");
+                System.out.println("3. DELETE A SONG OF THE PLAYLIST");
+                System.out.println("4. DISPLAY PLAYLIST");
+                System.out.println("5. EXIT");
+                System.out.println("----------------------------");
 
-            int option = scanner.nextInt();
+                int option = scanner.nextInt();
 
-            switch(option) {
-                case 1:
-                    System.out.println("\n------ PLAY SONG ------");
-                    boolean isPaused = false;
-                    premium.play();
-                    while(!isPaused) {
-                        if (scanner.hasNextLine() && scanner.nextLine().equalsIgnoreCase("p")) {
-                            isPaused = true;
-                            System.out.println("Playback paused.");
+                switch(option) {
+                    case 1:
+                        System.out.println("\n------ PLAY SONG ------");
+                        boolean isPaused = false;
+                        premium.play();
+                        while(!isPaused) {
+                            if (scanner.hasNextLine() && scanner.nextLine().equalsIgnoreCase("p")) {
+                                isPaused = true;
+                                System.out.println("Playback paused.");
+                            }
                         }
-                    }
-                    break;
-    
-                case 2:
-                    System.out.println("\n------ ADD SONG ------");
-                    IntStream.range(0, songs.size())
-                    .forEach(index -> {
-                        System.out.println(index + ": " + songs.get(index));
-                    });
-                    System.out.println("Select a song to add to playlist: ");
-                    Integer songNumber = scanner.nextInt();
-                    premium.addSong((Song)songs.get(songNumber));
-                    break;
-    
-                case 3:
-                    System.out.println("\n------ DELETE SONG ------");
-                    premium.removeSong();
-                    break;
-    
-                case 4:
-                    System.out.println("\n------ DISPLAY ------");
-                    premium.displayList();
-                    break;
-    
-                case 5:
-                    exit = true;
-                    break;
+                        break;
+   
+                    case 2:
+                        System.out.println("\n------ ADD SONG ------");
+                        IntStream.range(0, songs.size())
+                        .forEach(index -> {
+                            System.out.println(index + ": " + songs.get(index));
+                        });
+                        System.out.println("Select a song to add to playlist: ");
+                        Integer songNumber = scanner.nextInt();
+                        premium.addSong((Song)songs.get(songNumber));
+                        break;
+   
+                    case 3:
+                        System.out.println("\n------ DELETE SONG ------");
+                        premium.removeSong();
+                        break;
+   
+                    case 4:
+                        System.out.println("\n------ DISPLAY ------");
+                        premium.displayList();
+                        break;
+   
+                    case 5:
+                        exit = true;
+                        break;
+                }
             }
+        } catch(Exception e) {
+            System.out.println("Can't resolve");
         }
 
 
