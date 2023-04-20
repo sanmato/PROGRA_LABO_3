@@ -108,7 +108,7 @@ public class Store {
 
     public void getRentsToBeBackedToday() {
         rents.forEach(rental -> {
-            if(rental.getReturnDate().equals(LocalDate.now())) {
+            if(rental.getReturnDate().equals(LocalDate.now()) && rental.getRentReturned() == false) {
                 System.out.println(rental.toString());
             }
         });
