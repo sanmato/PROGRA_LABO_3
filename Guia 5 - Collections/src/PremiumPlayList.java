@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -44,16 +45,14 @@ public class PremiumPlayList implements IPlayList {
     // #region Overrided methods
     @Override
     public void play() {
-        IntStream.range(0, myList.size())
-            .forEach(index -> {
-                System.out.println(index + ": " + myList.get(index));
-            });
+        displayList();
 
         Scanner myScanner = new Scanner(System.in);
         System.out.println("Select a song to play: ");
         Integer songNumber = myScanner.nextInt();
 
         System.out.println("Now playing... " + myList.get(songNumber));
+        Collections.rotate(myList, myList.indexOf(songNumber));
     }
 
     @Override
@@ -63,10 +62,7 @@ public class PremiumPlayList implements IPlayList {
 
     @Override
     public void removeSong() {
-        IntStream.range(0, myList.size())
-            .forEach(index -> {
-                System.out.println(index + ": " + myList.get(index));
-            });
+            displayList();
 
             Scanner myScanner = new Scanner(System.in);
             System.out.println("Select a song to delete: ");
@@ -83,9 +79,10 @@ public class PremiumPlayList implements IPlayList {
 
     @Override
     public void displayList() {
-        myList.forEach(song -> {
-            System.out.println(song.toString());
-        });
+        IntStream.range(0, myList.size())
+            .forEach(index -> {
+                System.out.println(index + ": " + myList.get(index));
+            });
     }
     // #endregion
 }
