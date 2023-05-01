@@ -1,4 +1,4 @@
-public class Desk extends Furniture{
+public class Desk extends Furniture {
     private Double height;
     private Double width;
 
@@ -28,8 +28,4 @@ public class Desk extends Furniture{
     public String toString() {
         return "Desk [height=" + height + ", width=" + width + " " + super.toString() + "]";
     }
-
-    
-
-    
 }
