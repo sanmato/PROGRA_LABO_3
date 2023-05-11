@@ -1,4 +1,5 @@
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ public class Main {
 		Producto leche = new Producto(ID_LECHE, "leche", 3, 5.49);
 		Producto aceite = new Producto(ID_ACEITE, "aceite", 5, 24.99);
 		Producto harina = new Producto(ID_HARINA, "harina", 4, 16.35);
+		Producto queso = new Producto(4L, "queso", 3, 28.99);
 //		
 //		//No se puede hacer new de una clase abstracta!!! Por eso uso la jerarquía
 		Persona cliente = new Cliente(1L);
@@ -42,22 +44,32 @@ public class Main {
 
 		Gson gson = new Gson();
 
-		try{
+		/*try{
 			FileWriter writer = new FileWriter("productos.json");
 			gson.toJson(supermercado, writer);
 			writer.flush();
 			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		String json = supermercado.readFile("productos.json");
 
 		supermercado = gson.fromJson(json, supermercado.getClass());
 
-		System.out.println(supermercado);
+		supermercado.agregarProducto(queso.getId(), queso);
 
-		
+		String nuevoJson = gson.toJson(supermercado);
+
+		try(FileWriter writer = new FileWriter("productos.json", true)) {
+			gson.toJson(writer);
+			writer.flush();
+			writer.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+
 	}
 
 }
