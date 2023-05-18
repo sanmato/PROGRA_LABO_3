@@ -1,0 +1,20 @@
+{
+  "2": {
+    "id": 2,
+    "nombre": "aceite",
+    "stock": 4,
+    "precio": 24.99
+  },
+  "3": {
+    "id": 3,
+    "nombre": "harina",
+    "stock": 4,
+    "precio": 16.35
+  },
+  "4": {
+    "id": 4,
+    "nombre": "queso",
+    "stock": 3,
+    "precio": 28.99
+  }
+}
