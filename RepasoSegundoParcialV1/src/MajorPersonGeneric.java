@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MajorPersonGeneric<T extends Person> {
     private List<T> items;
@@ -39,7 +42,6 @@ public class MajorPersonGeneric<T extends Person> {
                 hashSetAuthors.add(bookItem.getAuthor());
             });
         });
-
         return hashSetAuthors;
     }
 
@@ -59,6 +61,45 @@ public class MajorPersonGeneric<T extends Person> {
             return false;
         MajorPersonGeneric<?> other = (MajorPersonGeneric<?>) obj;
         return Objects.equals(items, other.items);
+    }
+
+    public HashMap<Integer, ArrayList<String>> exportTagsToHashMap() {
+        HashMap<Integer, ArrayList<String>> container = new HashMap<>();
+
+        items.forEach(element -> {
+            int id = element.getId();
+            List<String> tags = element.getTags();
+
+            if (container.containsKey(id)) {
+                List<String> existingTags = container.get(id);
+                existingTags.addAll(tags);
+            } else {
+                List<String> newTags = new ArrayList<>(tags);
+                container.put(id, (ArrayList<String>) newTags);
+            }
+        });
+
+        return container;
+    }
+
+    public int totalTags(int id) throws CustomException {
+        AtomicBoolean claveEncontrada = new AtomicBoolean(false);
+        AtomicInteger totalTags = new AtomicInteger(0);
+
+        items.forEach(element -> {
+            if (element.getId() == id) {
+                List<String> elementTags = element.getTags();
+                elementTags.forEach(tag -> {
+                    totalTags.incrementAndGet();
+                });
+                claveEncontrada.set(true);
+            }
+        });
+
+        if (!claveEncontrada.get()) {
+            throw new CustomException("id not exists!");
+        }
+        return totalTags.get();
     }
 
 }
