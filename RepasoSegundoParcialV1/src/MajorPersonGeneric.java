@@ -26,10 +26,17 @@ public class MajorPersonGeneric<T extends Person> {
         return "MajorPersonGeneric [items=" + items + "]";
     }
 
-    public void filterFromList(List<T> parameterList, int menor) {
+    public void filterFromList(List<T> parameterList, int menor) throws AgeException {
         parameterList.forEach(person -> {
             if (person.getAge() >= menor) {
                 items.add(person);
+            } else {
+                try {
+                    throw new AgeException(person.getAge());
+                } catch (AgeException e) {
+                    System.out.println("Exception: " + e.getMessage());
+                    System.out.println("Invalid age: " + e.getAge());
+                }
             }
         });
     }

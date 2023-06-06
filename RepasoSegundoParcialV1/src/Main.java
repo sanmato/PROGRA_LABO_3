@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws CustomException {
+    public static void main(String[] args) throws CustomException, AgeException {
         Person person = new Person();
         List<Person> persons = person.readPersonJsonFile("generated.json");
 
@@ -12,7 +12,7 @@ public class Main {
 
         majorPersons.filterFromList(persons, 18);
 
-        // System.out.println(majorPersons.getItems());
+        System.out.println(majorPersons.getItems());
 
         HashSet<String> authors = majorPersons.saveAuthors();
 
