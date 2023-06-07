@@ -1,0 +1,34 @@
+[
+  {
+    "customerQueue": [
+      {
+        "paymentMethod": "EFECTIVO",
+        "type": "EMBARAZADA",
+        "itemQuantity": 12
+      },
+      {
+        "paymentMethod": "TARJETA_CON_PROBLEMAS",
+        "type": "JUBILADO",
+        "itemQuantity": 14
+      }
+    ]
+  },
+  {
+    "customerQueue": [
+      {
+        "paymentMethod": "EFECTIVO",
+        "type": "JUBILADO",
+        "itemQuantity": 6
+      }
+    ]
+  },
+  {
+    "customerQueue": [
+      {
+        "paymentMethod": "TARJETA_SIN_PROBLEMAS",
+        "type": "COMUN",
+        "itemQuantity": 4
+      }
+    ]
+  }
+]
